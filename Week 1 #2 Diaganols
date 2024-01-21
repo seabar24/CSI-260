@@ -1,0 +1,14 @@
+# Week 1 Diaganols 
+def print_matrix(n):
+    matrix = [[0] * n for _ in range(n)]
+
+    for i in range(n):
+        for j in range(n):
+            matrix[i][j] = abs(i - j)
+
+    for row in matrix:
+        print(' '.join(map(str, row)))
+
+# Example usage with n = 5
+n = 5
+print_matrix(n)
