@@ -1,0 +1,38 @@
+def remove_adjacent(nums):
+  # +++your code here+++
+    n = len(nums)
+    if n == 0:
+        return []
+    if n == 1:
+        return nums
+    i = 0
+    while i < n-1:
+        if nums[i] == nums[i+1]:
+            nums.pop(i)
+            n -= 1
+            i -= 1
+        i += 1
+    return nums
+    
+  #return
+
+###IGNORE THIS UNTIL YOU WANT TO TEST###
+### then remove the thre " from each end and run ###
+import unittest
+class UnitTests(unittest.TestCase):
+
+  def test_removeadjacent3(self):
+# Failure message: 
+# [] -> []
+    self.assertEquals(remove_adjacent([]), [])
+  def test_remove_adjacent1(self):
+# Failure message: 
+# [1, 2, 2, 3] -> [1, 2, 3]
+    self.assertEquals(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
+  def test_removeadjacent2(self):
+# Failure message: 
+# [2, 2, 3, 3, 3] -> [2, 3]
+    self.assertEquals(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
+
+if __name__ == '__main__':
+  unittest.main()
