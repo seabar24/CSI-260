@@ -1,0 +1,26 @@
+# Week 1 Dictionaries
+num_countries_for_dict = int(input("Enter the number of countries: "))
+country_input = []
+for i in range(num_countries_for_dict):
+    country_input.append(input(f"Enter the name of the country: "))
+
+num_cities_to_lookup = int(input("Enter the number of cities to lookup: "))
+city_input = []
+for i in range(num_cities_to_lookup):
+    city_input.append(input(f"Enter the name of each city: "))
+
+# Create a dictionary to store city-country mapping
+city_country_map = {}
+
+# Process country data and populate the dictionary
+for i in range(num_countries_for_dict):
+    country, *cities = input(f"Enter the name of the country and its cities (Ex. USA Boston Poughkeepsie): ").split()
+    for city in cities:
+        city_country_map[city] = country
+
+# Lookup cities
+result = [city_country_map[city] for city in city_input]
+
+# Print output
+for country in result:
+    print(country)
