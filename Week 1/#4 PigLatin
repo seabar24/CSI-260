@@ -1,3 +1,4 @@
+# Week 1 PigLatin
 def convert_word(word):
   '''Converts a word to piglatin and returns the resulting word
   '''
