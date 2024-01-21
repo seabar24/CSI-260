@@ -1,0 +1,35 @@
+#Week 1 Strings
+def both_ends(s):
+ 
+  # +++your code here+++
+    if len(s) < 2:
+        return ''
+    else:
+        return s[0:2] + s[-2:]
+
+###IGNORE THIS UNTIL YOU WANT TO TEST###
+### then remove the thre " from each end and run ###
+
+import unittest
+class TestMethods(unittest.TestCase):
+
+  
+  def test_testName2(self):
+# Failure message: 
+# 'a' should yield ''
+    self.assertEqual(both_ends('a'), '')
+  def test_testName3(self):
+# Failure message: 
+# 'xyz' should yield 'xyyz'
+    self.assertEqual(both_ends('xyz'), 'xyyz')
+  def test_testName(self):
+# Failure message: 
+# spring should yield spng
+    self.assertEqual(both_ends('spring'), 'spng')
+  def test_testName1(self):
+# Failure message: 
+# 'Hello' should yield 'Helo'
+    self.assertEqual(both_ends('Hello'), 'Helo')
+
+if __name__ == '__main__':
+    unittest.main()
