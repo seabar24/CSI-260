@@ -1,0 +1,7 @@
+import re
+def has_vowel(s):
+      return bool(re.search(r'[aeiouAEIOU].*[aeiouAEIOU]', sentence))
+
+sentence = input("Enter a sentence to see if there is more than one vowel: ")
+result = has_vowel(sentence)
+print(result)
