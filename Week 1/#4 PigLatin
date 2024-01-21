@@ -1,0 +1,38 @@
+def convert_word(word):
+  '''Converts a word to piglatin and returns the resulting word
+  '''
+  VOWELS = ('a', 'e', 'i', 'o', 'u')
+  vowelpos=0
+  finalWord=""
+  for i in range(len(word)):
+    if word[i] in VOWELS:
+        vowelpos=i
+        break
+  if vowelpos==0:
+    finalWord = word + "way"
+  else:
+    finalWord = word[vowelpos:] + word[:vowelpos] + "ay"
+  return finalWord
+
+import unittest
+#Click to add an import
+class UnitTests(unittest.TestCase):
+
+  def test_vowel_start(self):
+# Failure message: 
+# "always" = "alwaysway" 
+# "ends" = "endsway" 
+# "honest" = "honestway"
+    self.assertEqual(convert_word('always'), 'alwaysway')
+    self.assertEqual(convert_word('ends'), 'endsway')
+    self.assertEqual(convert_word('i'), 'iway')
+  def test_consonant_first(self):
+# Failure message: 
+# Fails for bagel, trash or store
+# agelbay, ashtray, orestay
+    self.assertEqual(convert_word('bagel'), 'agelbay')
+    self.assertEqual(convert_word('trash'), 'ashtray')
+    self.assertEqual(convert_word('store'), 'orestay')
+
+if __name__ == '__main__':
+    unittest.main()
