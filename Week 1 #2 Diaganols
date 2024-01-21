@@ -10,5 +10,5 @@ def print_matrix(n):
         print(' '.join(map(str, row)))
 
 # Example usage with n = 5
-n = 5
+n = int(input("Enter a number: "))
 print_matrix(n)
