@@ -1,3 +1,4 @@
+# Week 1 Has_Vowel
 import re
 def has_vowel(s):
       return bool(re.search(r'[aeiouAEIOU].*[aeiouAEIOU]', sentence))
