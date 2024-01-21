@@ -1,4 +1,4 @@
-# Week 2 Diaganols
+# Week 1 Diaganols
 def print_matrix(n):
     matrix = [[0] * n for _ in range(n)]
 
