@@ -1,0 +1,45 @@
+class Pet():
+  def __init__(self, name):
+    self.name=name
+    self.hunger=50
+    self.boredom=50
+  def talk(self):
+    print("I am a virtual pet")
+    print("Name: ",self.name)
+    print("Hunger: ",self.hunger)
+    print("Boredom: ",self.boredom)
+  def _repr__(self):
+    print(self)
+  def __str__(self):
+    return self.name
+  def play(self):
+    play=int (input("How much to play (1-100)"))
+    self.boredom=self.boredom + play
+    self.boredom=self.hunger - (play/2)
+  def feed(self):
+    play=int (input("How much to feed (1-25)"))
+    self.hunger += eat
+
+class Money():
+  def __init__(self):
+    self.name = input("name")
+    self.money = Money(100)
+
+  def feed_pet(self):
+    if self.money.balance > 10:
+      print("YES")
+    else:
+      print("NO")
+class Person():
+  def __init__(self):
+      self.name=input("name")
+      
+        
+fred=Pet("Fred")
+isaiah=Person()
+fred.talk()
+if isaiah.feed_pet():
+    fred.feed()
+fred.talk()
+fred.play()
+frdd.talk()
