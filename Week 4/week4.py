@@ -1,4 +1,4 @@
-"""DESCRIPTION OF THE MODULE GOES HERE
+"""Module description goes here.
 
 Author: Sean Barrick
 Class: CSI-260-01
@@ -22,19 +22,18 @@ import os
 
 Patient.load_patients("patients.txt")  # Loads previous save if one exists
 
-# Modifies the exisitng patients attributes
 def modify_attribute(patient, attribute_name, new_value):
+    """Modify the given attribute of a patient."""
     if hasattr(patient, attribute_name):
-            setattr(patient, attribute_name, new_value)
-            print(f"Changed {attribute_name} to {new_value}.")
+        setattr(patient, attribute_name, new_value)
+        print(f"Changed {attribute_name} to {new_value}.")
     else:
         print(f"Attribute '{attribute_name}' does not exist!")
         time.sleep(2)
         Menu()
 
-# Chooses which attribute the user wants to change from a patient
 def modify_patient(patient):
-
+    """Modify attributes or add a procedure for a patient."""
     attributes = {
         "1": "firstname",
         "2": "lastname",
@@ -48,7 +47,6 @@ def modify_patient(patient):
     attribute_choice = input(
         "What attribute would you like to change?\n1. First Name\n2. Last Name\n3. Address\n4. Phone Number\n5. Emergency Contact Name\n6. Emergency Contact Phone Number\n7. Add a Procedure\n\nEnter your choice here or hit 'Enter' to return to Main Menu: ")
 
-    # Creates a list based on the attributes and will use setattr() to change that specific attribute
     if attribute_choice in attributes:
         attribute_name = attributes[attribute_choice]
         if attribute_name == "add_procedure":
@@ -63,12 +61,12 @@ def modify_patient(patient):
     time.sleep(2)
     Menu()
 
-# Retrieves Patient info based on ID and gives a new menu
 def retrieve_info():
+    """Retrieve and perform actions on patient information."""
     patient_id = int(input("Enter patient ID: "))
     patient = Patient.get_patient(patient_id)
     if patient is not None:
-        print("\n",patient, "\n")
+        print("\n", patient, "\n")
         switch_dict = {
             "1": lambda: modify_patient(patient),
             "2": Patient.delete_patient,
@@ -81,8 +79,8 @@ def retrieve_info():
         time.sleep(2)
         Menu()
 
-# Adds a new patient to the dictionary
 def add_patient():
+    """Add a new patient to the dictionary."""
     first_name = input("Enter a first name: ")
     last_name = input("Enter a last name: ")
     address = input("Enter an address: ")
@@ -95,8 +93,9 @@ def add_patient():
     print("Done! Returning to menu...")
     time.sleep(2)
     Menu()
-# Saves and Quits the program
+
 def quit_program():
+    """Save and quit the program."""
     print("Saving...")
     time.sleep(2)
     Patient.save_patients("patients.txt")
@@ -104,16 +103,15 @@ def quit_program():
     time.sleep(2)
     exit()
 
-# Default case if none of the options are chosen from menus
 def default_case():
+    """Default case if none of the options are chosen from menus."""
     print("Nuh uh")
     time.sleep(2)
     Menu()
 
-# Main Menu Function
 def Menu():
+    """Main Menu Function."""
     switch_dict = {
-
         "1": retrieve_info,
         "2": add_patient,
         "3": quit_program
@@ -126,4 +124,5 @@ def Menu():
 
     choice = input("1. Retrieve Patient Info\n2. Add a Patient\n3. Quit\n\nEnter your choice:")
     switch_dict.get(choice, default_case)()
+
 Menu()
