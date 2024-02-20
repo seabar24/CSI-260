@@ -5,4 +5,4 @@
 
 [Week 2 Code](https://github.com/seabar24/CSI-260/tree/Home/Week%202)
 
-[Week 3 Code](https://github.com/seabar24/CSI-260/tree/Home/Week%203)
+[Week 3 Code](https://github.com/seabar24/CSI-260/tree/Home/Week3)
